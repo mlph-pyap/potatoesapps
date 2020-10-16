@@ -1,0 +1,3 @@
+include ':PotatoesMonstarlabPh'
+include ':potatoesexample'
+rootProject.name = "Potatoes Apps"
