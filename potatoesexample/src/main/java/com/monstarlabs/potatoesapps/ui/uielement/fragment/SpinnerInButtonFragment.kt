@@ -29,7 +29,7 @@ class SpinnerInButtonFragment : Fragment() {
         val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
         var spinnerButton = binding.spinnerInButton
         var cars_l1 = spinnerButton.addNumberFormat(cars);
-        spinnerButton.addNumberFormat(arrayOf("s1", "s2"))
+        spinnerButton.addNumberFormat(arrayOf("s1", "s2", "s3"))
         cars_l1.wrapSelectorWheel = true;
 
         spinnerButton.isBtnTextWillUpdatedWhenOnClick = true;
