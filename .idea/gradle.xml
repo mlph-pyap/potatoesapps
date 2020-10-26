@@ -11,7 +11,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/PotatoesMonstarlabPh" />
+            <option value="$PROJECT_DIR$/PotatoesAndroid" />
             <option value="$PROJECT_DIR$/potatoesexample" />
           </set>
         </option>
