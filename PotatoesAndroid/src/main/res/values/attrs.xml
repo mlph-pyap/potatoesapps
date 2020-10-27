@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="ModalsBarLayout">
+        <attr name="project_src" format="string" />
+        <attr name="layout_src" format="string" />
+    </declare-styleable>
+
+</resources>
