@@ -52,8 +52,6 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
         super(context, attrs);
         selfContext = context;
         init(context);
-
-
     }
 
     public SpinnerInButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -70,8 +68,6 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
             String[] dataPickerString = addNumberPickerValue.get(i).getValueArray();
             getNumberPickerValue.add(dataPickerString[dataPickerWidget.getValue()]);
         }
-
-
         return getNumberPickerValue;
     }
 
@@ -94,7 +90,6 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
     private void initBtnTextWillUpdatedWhenOnClick() {
         if (isBtnTextWillUpdatedWhenOnClick == true) {
             List<String> dataInArray = getNumberFormatValue();
-
             String idList = dataInArray.toString();
             String idsListReplace = idList.substring(1, idList.length() - 1).replace(", ", textSplit);
             this.setText(idsListReplace);
@@ -121,10 +116,7 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
     }
 
     public void init(Context context) {
-
-
         alertDialog = new AlertDialog.Builder(context, style.AlertDialogNumerPickerTheme);
-
         Context dialogContext = alertDialog.getContext();
 
         mainViews = new LinearLayout(context);
@@ -168,8 +160,6 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
         mainViews.addView(viewsLinearTopButton);
         mainViews.addView(viewsLinearNumberPicker);
         alertDialog.setView(mainViews);
-
-
     }
 
     private void viewRemoveAll() {
@@ -188,7 +178,6 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
 
     public void onTopButtonClickEvent(@Nullable SpinnerInButton.SpinnerInButtonListener spinnerInButtonListener) {
         this.spinnerInButtonListener = spinnerInButtonListener;
-
     }
 
 
@@ -198,20 +187,19 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
         void onClickBtnDone(View view);
     }
 
-
     private void initializeDialogTopButton(Context context) {
         DisplayMetrics getMetrics = getWindowDisplayMetrics();
 
         btnDone = new Button(context);
         btnDone.setText(textBtnDone);
-        btnDone.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btnDone.setBackground(new ColorDrawable(Color.TRANSPARENT));
         btnDone.setMinWidth((int) (getMetrics.widthPixels / 2));
         btnDone.setGravity(Gravity.RIGHT);
 
 
         btnCancel = new Button(context);
         btnCancel.setText(textBtnCancel);
-        btnCancel.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        btnCancel.setBackground(new ColorDrawable(Color.TRANSPARENT));
         btnCancel.setMinWidth((int) (getMetrics.widthPixels / 2));
         btnCancel.setGravity(Gravity.LEFT);
         viewsLinearTopButton.addView(btnCancel);
@@ -232,6 +220,8 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
     private void buildVersion(Window lp) {
         if (Build.VERSION.SDK_INT < 16) {
             lp.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            lp.setDecorFitsSystemWindows(true);
         } else {
 
             View decorView = lp.getDecorView();
@@ -242,7 +232,7 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
 
     @Override
     public void onClick(View view) {
-        
+
         viewRemoveAll();
         init(view.getContext());
         alertDialogCreate = alertDialog.create();
@@ -259,23 +249,17 @@ public class SpinnerInButton extends androidx.appcompat.widget.AppCompatButton i
             alertDialogCreate.cancel();
         });
         btnCancel.setOnClickListener(view1 -> {
-
             if (spinnerInButtonListener != null) {
                 spinnerInButtonListener.onClickBtnCancel(view1);
             }
-
-
             viewRemoveAll();
             alertDialogCreate.cancel();
         });
-
 
         buildVersion(lp);
         lp.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
         lp.setGravity(Gravity.BOTTOM);
         lp.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
     }
 
 

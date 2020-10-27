@@ -48,7 +48,8 @@ class HomeFragment : Fragment() {
     }
 }
 var listProject = arrayListOf<ContentData>(
-    ContentData("Spinner in number button", R.id.nav_ui_element_spinner_button)
+    ContentData("Spinner in number button", R.id.nav_ui_element_spinner_button),
+    ContentData("Modal bar layout", R.id.nav_ui_element_modal_bar)
 
 )
 

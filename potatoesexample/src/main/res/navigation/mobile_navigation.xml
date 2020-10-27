@@ -24,6 +24,12 @@
         tools:layout="@layout/uilement_home_fragment" />
 
     <fragment
+        android:id="@+id/nav_ui_element_modal_bar"
+        android:name="com.monstarlabs.potatoesapps.ui.uielement.fragment.ModalBarFragment"
+        android:label="@string/menu_ui_element"
+        tools:layout="@layout/uilement_home_fragment" />
+
+    <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.monstarlabs.potatoesapps.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
